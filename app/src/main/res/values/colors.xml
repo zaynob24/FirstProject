@@ -6,6 +6,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="dark_pink">#EF4A4A</color>
     <color name="light_orange">#FDF3EC</color>
+    <color name="light_black">#1B1A1A</color>
 
 
 </resources>
