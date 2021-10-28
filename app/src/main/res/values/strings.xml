@@ -4,6 +4,10 @@
     <string name="done_header">Done:</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="save">Save</string>
+    <string name="todo_massage">To-do</string>
+    <string name="no_category">NO category</string>
+    <string name="remarks">Remarks</string>
 
     <string-array name="categories">
         <item>Personal</item>

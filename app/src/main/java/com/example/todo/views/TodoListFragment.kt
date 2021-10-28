@@ -1,22 +1,26 @@
 package com.example.todo.views
 
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.os.Bundle
+import android.service.controls.ControlsProviderService.TAG
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import com.example.todo.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import it.emperor.animatedcheckbox.AnimatedCheckBox
 
 
 class TodoListFragment : Fragment() {
 
     private lateinit var  spineer : Spinner
+    val modalBottomSheet = ModalBottomSheetFragment()
+    private val TAG = "ModalBottomSheet"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,10 +32,18 @@ class TodoListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val addFloatingActionButton : FloatingActionButton = view.findViewById(R.id.add_button)
 
+        val addFloatingActionButton : FloatingActionButton = view.findViewById(R.id.add_floating_button)
         val categories = resources.getStringArray(R.array.categories)
         spineer = view.findViewById<Spinner>(R.id.spinner)
+
+        /** For test --------------------------------*/
+        val numbertextView :TextView = view.findViewById(R.id.numbers_todo_textview)
+        numbertextView.setOnClickListener {
+
+            findNavController().navigate(R.id.action_todoListFragment_to_detailsFragment)
+
+        }
 
         if (spineer != null)
         {
@@ -40,10 +52,11 @@ class TodoListFragment : Fragment() {
         }
 
 
-
-
         addFloatingActionButton.setOnClickListener {
-            findNavController().navigate(R.id.action_todoListFragment_to_detailsFragment)
+
+            //findNavController().navigate(R.id.action_todoListFragment_to_detailsFragment)
+            modalBottomSheet.show(requireActivity().supportFragmentManager, TAG)
+
         }
     }
 
