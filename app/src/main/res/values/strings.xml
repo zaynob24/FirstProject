@@ -8,6 +8,7 @@
     <string name="todo_massage">To-do</string>
     <string name="no_category">NO category</string>
     <string name="remarks">Remarks</string>
+    <string name="delete">Delete</string>
 
     <string-array name="categories">
         <item>Personal</item>

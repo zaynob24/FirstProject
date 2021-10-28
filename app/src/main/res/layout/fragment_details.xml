@@ -165,7 +165,8 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:padding="15dp"
-            android:src="@drawable/ic_baseline_notes_24" />
+            android:src="@drawable/ic_baseline_notes_24"
+            android:tint="@color/orange" />
 
         <EditText
             android:id="@+id/textView6"
@@ -178,6 +179,20 @@
             android:hint="@string/remarks"
             android:textSize="12sp" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/light_gry"
+        android:text="@string/delete"
+        android:textColor="@color/gry"
+        app:icon="@drawable/ic_baseline_delete_forever_24"
+        app:iconGravity="top"
+        app:iconTint="@color/gry"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

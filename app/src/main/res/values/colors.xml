@@ -12,6 +12,9 @@
     <color name="light_green">#D6E9CD</color>
     <color name="light_black">#1B1A1A</color>
     <color name="light_brown">#AFA299</color>
+    <color name="light_gry">#EFEFEF</color>
+    <color name="gry">#BDBCBC</color>
+    <color name="orange">#F5C6A5</color>
 
 
 </resources>
