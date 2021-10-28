@@ -6,6 +6,7 @@
         <entry key="..\:/Users/aliju/AndroidStudioProjects/FirstProject/app/src/main/res/drawable-v24/colored_outline.xml" value="0.25" />
         <entry key="..\:/Users/aliju/AndroidStudioProjects/FirstProject/app/src/main/res/drawable-v24/colored_outline_white_background.xml" value="0.25" />
         <entry key="..\:/Users/aliju/AndroidStudioProjects/FirstProject/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/aliju/AndroidStudioProjects/FirstProject/app/src/main/res/layout/fragment_details.xml" value="0.25025641025641027" />
         <entry key="..\:/Users/aliju/AndroidStudioProjects/FirstProject/app/src/main/res/layout/fragment_todo_list.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/aliju/AndroidStudioProjects/FirstProject/app/src/main/res/layout/item_layout.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/aliju/AndroidStudioProjects/FirstProject/app/src/main/res/layout/iteml_ayout.xml" value="0.25416666666666665" />
@@ -17,5 +18,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.25416666666666665" />
+      </ProjectState>
+    </option>
   </component>
 </project>
