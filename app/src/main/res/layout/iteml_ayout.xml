@@ -22,17 +22,23 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="18dp"
-            android:layout_marginTop="10dp"
             android:layout_marginEnd="18dp"
-            android:layout_marginBottom="10dp"
             android:gravity="center"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+            <it.emperor.animatedcheckbox.AnimatedCheckBox
+                android:id="@+id/animatedcheckbox"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:acb_animation_duration="500"
+                app:acb_border_checked_color="@color/light_brown"
+                app:acb_border_checked_stroke_width="2dp"
+                app:acb_border_not_checked_color="@color/green"
+                app:acb_checked="false"
+                app:acb_circle_color="@color/light_orange"
+                app:acb_hook_color="@color/light_brown"
+                app:acb_hook_stroke_width="2dp"
+                app:acb_padding="15dp" />
 
             <TextView
                 android:id="@+id/textView3"

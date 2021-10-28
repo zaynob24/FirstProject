@@ -4,9 +4,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
     <color name="dark_pink">#EF4A4A</color>
     <color name="light_orange">#FDF3EC</color>
+    <color name="green">#81CC5E</color>
+    <color name="light_green">#D6E9CD</color>
     <color name="light_black">#1B1A1A</color>
+    <color name="light_brown">#AFA299</color>
 
 
 </resources>
