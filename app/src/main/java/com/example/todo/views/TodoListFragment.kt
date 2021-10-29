@@ -54,7 +54,6 @@ class TodoListFragment : Fragment() {
 
         addFloatingActionButton.setOnClickListener {
 
-            //findNavController().navigate(R.id.action_todoListFragment_to_detailsFragment)
             modalBottomSheet.show(requireActivity().supportFragmentManager, TAG)
 
         }
