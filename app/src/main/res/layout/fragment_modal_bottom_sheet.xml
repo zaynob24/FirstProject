@@ -41,7 +41,7 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/calenderIcon_imageView"
                 android:layout_width="40dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
@@ -60,6 +60,16 @@
                 android:text="@string/save"
                 android:textColor="@color/white" />
         </LinearLayout>
+
+        <!--<DatePicker
+            android:id="@+id/datePicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:calendarViewShown="false"
+            android:clickable="false"
+            android:datePickerMode="spinner"
+            android:focusableInTouchMode="false"
+            android:visibility="visible" />-->
 
     </LinearLayout>
 

@@ -38,8 +38,8 @@ class TodoListFragment : Fragment() {
         spineer = view.findViewById<Spinner>(R.id.spinner)
 
         /** For test --------------------------------*/
-        val numbertextView :TextView = view.findViewById(R.id.numbers_todo_textview)
-        numbertextView.setOnClickListener {
+        val numberTextView :TextView = view.findViewById(R.id.numbers_todo_textview)
+        numberTextView.setOnClickListener {
 
             findNavController().navigate(R.id.action_todoListFragment_to_detailsFragment)
 
