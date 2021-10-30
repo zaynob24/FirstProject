@@ -15,7 +15,7 @@ class TasksViewModel: ViewModel() {
 
     var selectedItemMutableLiveData = MutableLiveData<TasksModel>()
 
-    fun addTask(title:String,note:String,isDone:Boolean,dueDate:String,createdDate:String,){
+    fun addTask(title:String,note:String,isDone:Boolean,dueDate:String,createdDate:String){
         viewModelScope.launch {
             todoRepository.addTask(TasksModel(title, note, isDone,dueDate,createdDate))
         }
