@@ -11,16 +11,24 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.TextView
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
 import com.example.todo.R
+import com.example.todo.database.model.TasksModel
+import com.example.todo.views.adapter.TaskAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class TodoListFragment : Fragment() {
 
     private lateinit var  spineer : Spinner
-    val modalBottomSheet = ModalBottomSheetFragment()
+    private val modalBottomSheet = ModalBottomSheetFragment()
     private val TAG = "ModalBottomSheet"
+
+    private val tasksItem = mutableListOf<TasksModel>()
+    private val taskViewModel : TasksViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +41,19 @@ class TodoListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val tasksRecyclerView : RecyclerView = view.findViewById(R.id.recyclerView)
+        val taskAdapter = TaskAdapter(tasksItem,taskViewModel)
+        tasksRecyclerView.adapter = taskAdapter
+        taskViewModel.tasksItems.observe(viewLifecycleOwner, Observer {
+            it?.let { items ->
+
+                tasksItem.clear()
+                tasksItem.addAll(items)
+                taskAdapter.notifyDataSetChanged()
+            }
+        })
+
+
         val addFloatingActionButton : FloatingActionButton = view.findViewById(R.id.add_floating_button)
         val categories = resources.getStringArray(R.array.categories)
         spineer = view.findViewById<Spinner>(R.id.spinner)
@@ -40,9 +61,7 @@ class TodoListFragment : Fragment() {
         /** For test --------------------------------*/
         val numberTextView :TextView = view.findViewById(R.id.numbers_todo_textview)
         numberTextView.setOnClickListener {
-
             findNavController().navigate(R.id.action_todoListFragment_to_detailsFragment)
-
         }
 
         if (spineer != null)
@@ -53,9 +72,7 @@ class TodoListFragment : Fragment() {
 
 
         addFloatingActionButton.setOnClickListener {
-
             modalBottomSheet.show(requireActivity().supportFragmentManager, TAG)
-
         }
     }
 
