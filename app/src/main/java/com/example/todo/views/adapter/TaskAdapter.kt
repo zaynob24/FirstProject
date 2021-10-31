@@ -41,16 +41,8 @@ class TaskAdapter (val tasks:List<TasksModel>, val viewModel: TasksViewModel)
         // Resource: https://android-arsenal.com/details/1/7205
 
 
-
-
         // change color to red if date pass , or make it black if not pass
-        if (DatePickerBuilding.isDueDatePass(task.dueDate)){
-            holder.dueDateTextView.setTextColor(Color.parseColor("#EF4A4A"))
-        }else{
-            holder.dueDateTextView.setTextColor(Color.parseColor("#1B1A1A"))
-        }
-
-
+        holder.dueDateTextView.setTextColor(Color.parseColor(DatePickerBuilding.isDueDatePassColor(task.dueDate)))
 
         holder.dueDateTextView.text = DatePickerBuilding.formatDateReadable(task.dueDate)
 

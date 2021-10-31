@@ -97,17 +97,4 @@ class ModalBottomSheetFragment : BottomSheetDialogFragment() {
     //TODO 2: [[ make edit text clear when press out of button sheet ]]
 
 
-
-
-    //TODO (helpful)
-    // to make date format readable
-    // use this to see if due day pass
-
-//            val currentDate = formatDate(Calendar.getInstance().time)
-//            if (selectedDate==currentDate){
-//                Log.d("addOnPositiveButton","To day")
-//            }else if (selectedDate<currentDate){
-//                Log.d("addOnPositiveButton","pass day")
-//            }
-
 }

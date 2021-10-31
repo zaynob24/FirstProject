@@ -37,13 +37,13 @@ object DatePickerBuilding {
     }
 
 
-    // check if date pass return true
-    val isDueDatePass: (String) -> Boolean = { date ->
-        val currentDate = formatDate(Calendar.getInstance().time)
 
-        if (date <= currentDate) true
-        else if (date > currentDate) false
-        else false
+    // check if date pass return color
+    val isDueDatePassColor: (String) -> String = { date ->
+        val currentDate = formatDate(Calendar.getInstance().time)
+        if (date <= currentDate) "#EF4A4A"
+        else if (date > currentDate) "#1B1A1A"
+        else "#1B1A1A"
     }
 
 }
