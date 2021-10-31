@@ -7,10 +7,10 @@ import androidx.room.PrimaryKey
 @Entity
 data class TasksModel(
 
-    val title : String,
-    val note : String = "",
-    val isDone : Boolean = false,
-    val dueDate : String ="",
+    var title : String,
+    var note : String = "",
+    var isDone : Boolean = false,
+    var dueDate : String ="",
     val createdDate : String,
 
     @PrimaryKey(autoGenerate = true)

@@ -11,11 +11,9 @@ import android.widget.ImageView
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
 import com.example.todo.R
+import com.example.todo.objects.DatePickerBuilding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.google.android.material.datepicker.MaterialDatePicker
-import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -52,26 +50,21 @@ class ModalBottomSheetFragment : BottomSheetDialogFragment() {
         val calenderIcon: ImageView = view.findViewById(R.id.calenderIcon_imageView)
         val todoTitleEditText: EditText = view.findViewById(R.id.todo_title_editText)
 
-        // To set date
-        // build date Picker dialog
-        val datePicker =
-            MaterialDatePicker.Builder.datePicker()
-                .setTitleText(R.string.select_date_header)
-                .build()
+
 
         // date picker --> ok button clicked
-        datePicker.addOnPositiveButtonClickListener {
+        DatePickerBuilding.datePicker.addOnPositiveButtonClickListener {
 
-            selectedDate = formatDate(datePicker.selection)
+            selectedDate = DatePickerBuilding.formatDate(DatePickerBuilding.datePicker.selection)
             Log.d("selected Date", selectedDate)
         }
 
         calenderIcon.setOnClickListener {
             // show date picker dialog
-            datePicker.show(requireActivity().supportFragmentManager, "tag")
+            DatePickerBuilding.datePicker.show(requireActivity().supportFragmentManager, "tag")
         }
 
-           //TODO change button color while setEnabled(false)
+           //TODO 1: change button color while setEnabled(false)
           //  https://newbedev.com/change-the-color-of-a-disabled-button-in-android
           //  https://stackoverflow.com/questions/33071410/change-the-color-of-a-disabled-button-in-android
 
@@ -94,30 +87,19 @@ class ModalBottomSheetFragment : BottomSheetDialogFragment() {
         // save Button clicked --> add data to database
         saveButton.setOnClickListener {
             todoTaskTitle = todoTitleEditText.text.toString()
-            currentDate = formatDate(Calendar.getInstance().time)
+            currentDate = DatePickerBuilding.formatDate(Calendar.getInstance().time)
             tasksViewModel.addTask(todoTaskTitle,NOTE,isDONE,selectedDate,currentDate)
             dismiss()  // close Modal Bottom Sheet Fragment
             todoTitleEditText.text.clear()
         }
     }
 
-    //  to make date in ("yyyy MM dd") format
-    // <T> --> date parameter come in different data type (Long or Date)
-    private fun <T> formatDate(date: T): String {
-        val format = SimpleDateFormat("yyyy MM dd")
-        return format.format(date)
-    }
+    //TODO 2: [[ make edit text clear when press out of button sheet ]]
 
-    //TODO
-    // to make date format readable
-    // use this when get date from data base to show it to user
-    //The pattern letters means: E -> day name, M -> Month name, d -> day of month number, y -> the year
 
-//    val date = SimpleDateFormat("yyyy MM dd").parse(selectedDate)
-//    val format = SimpleDateFormat("E, MMM dd, yyyy")
-//    val dateFormatted = format2.format(date)
 
-    //TODO
+
+    //TODO (helpful)
     // to make date format readable
     // use this to see if due day pass
 
