@@ -25,7 +25,7 @@ class DetailsFragment : Fragment() {
 
     private val taskViewModel : TasksViewModel by activityViewModels()
     private lateinit var selectedTask :TasksModel
-
+    private lateinit var  selectedDate:String
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -81,7 +81,9 @@ class DetailsFragment : Fragment() {
 
         // change date --> ok button on date picker clicked
         DatePickerBuilding.datePicker.addOnPositiveButtonClickListener {
-            dateTextViewDetail.text  = DatePickerBuilding.formatDateReadable(DatePickerBuilding.formatDate(DatePickerBuilding.datePicker.selection))
+
+             selectedDate =DatePickerBuilding.formatDate(DatePickerBuilding.datePicker.selection)
+            dateTextViewDetail.text  = DatePickerBuilding.formatDateReadable(selectedDate)
         }
 
         // update changes and close fragment
@@ -89,7 +91,7 @@ class DetailsFragment : Fragment() {
 
             selectedTask.title = titleTextViewDetail.text.toString()
             selectedTask.isDone = isDoneCheckboxDetails.isChecked()
-            selectedTask.dueDate = dateTextViewDetail.text.toString()
+            selectedTask.dueDate = selectedDate
             selectedTask.note =  noteTextViewDetail.text.toString()
 
             taskViewModel.updateTask(selectedTask)

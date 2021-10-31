@@ -8,6 +8,7 @@ import com.google.android.material.datepicker.MaterialDatePicker
 import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import java.util.*
 
 object DatePickerBuilding {
 
@@ -30,18 +31,19 @@ object DatePickerBuilding {
     // use this when get date from data base to show it to user
     //The pattern letters means: E -> day name, M -> Month name, d -> day of month number, y -> the year
     @RequiresApi(Build.VERSION_CODES.O)
-    fun  formatDateReadable(date: String): String {
-        val localDate = LocalDate.parse(date,DateTimeFormatter.ofPattern("yyyy MM dd"))
+    fun formatDateReadable(date: String): String {
+        val localDate = LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy MM dd"))
         return localDate.format(DateTimeFormatter.ofPattern("E, MMM dd, yyyy"))
     }
+
+
+    // check if date pass return true
+    val isDueDatePass: (String) -> Boolean = { date ->
+        val currentDate = formatDate(Calendar.getInstance().time)
+
+        if (date <= currentDate) true
+        else if (date > currentDate) false
+        else false
+    }
+
 }
-
-
-//TODO (helpful)
-// to make date format readable
-// use this when get date from data base to show it to user
-//The pattern letters means: E -> day name, M -> Month name, d -> day of month number, y -> the year
-
-//    val date = SimpleDateFormat("yyyy MM dd").parse(selectedDate)
-//    val format = SimpleDateFormat("E, MMM dd, yyyy")
-//    val dateFormatted = format2.format(date)

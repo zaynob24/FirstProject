@@ -1,6 +1,9 @@
 package com.example.todo.views.adapter
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Build
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +17,7 @@ import com.example.todo.database.model.TasksModel
 import com.example.todo.objects.DatePickerBuilding
 import com.example.todo.views.TasksViewModel
 import it.emperor.animatedcheckbox.AnimatedCheckBox
+import java.util.*
 
 class TaskAdapter (val tasks:List<TasksModel>, val viewModel: TasksViewModel)
     :RecyclerView.Adapter<TaskViewHolder>(){
@@ -27,12 +31,27 @@ class TaskAdapter (val tasks:List<TasksModel>, val viewModel: TasksViewModel)
             )
         )    }
 
+    @SuppressLint("ResourceAsColor")
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         val task = tasks[position]
 
         holder.titleTextView.text = task.title
-        holder.isDoneCheckbox.setChecked(task.isDone)   // Resource: https://android-arsenal.com/details/1/7205
+        holder.isDoneCheckbox.setChecked(task.isDone)
+        // Resource: https://android-arsenal.com/details/1/7205
+
+
+
+
+        // change color to red if date pass , or make it black if not pass
+        if (DatePickerBuilding.isDueDatePass(task.dueDate)){
+            holder.dueDateTextView.setTextColor(Color.parseColor("#EF4A4A"))
+        }else{
+            holder.dueDateTextView.setTextColor(Color.parseColor("#1B1A1A"))
+        }
+
+
+
         holder.dueDateTextView.text = DatePickerBuilding.formatDateReadable(task.dueDate)
 
         // to open item Details Fragment
@@ -52,6 +71,7 @@ class TaskAdapter (val tasks:List<TasksModel>, val viewModel: TasksViewModel)
     override fun getItemCount(): Int {
         return tasks.size
     }
+
 }
 
 class TaskViewHolder(view: View): RecyclerView.ViewHolder(view){
