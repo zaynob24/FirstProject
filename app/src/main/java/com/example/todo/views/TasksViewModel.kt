@@ -7,11 +7,12 @@ import com.example.todo.database.model.TasksModel
 import com.example.todo.repositories.TodoRepository
 import kotlinx.coroutines.launch
 
-class TasksViewModel: ViewModel() {
+open class TasksViewModel: ViewModel() {
 
-    private val todoRepository = TodoRepository.get()
+     val todoRepository = TodoRepository.get()
 
     val tasksItems = todoRepository.getTask()
+     val tasksItemsCompleted = todoRepository.getCompletedTask()
 
     var selectedItemMutableLiveData = MutableLiveData<TasksModel>()
 

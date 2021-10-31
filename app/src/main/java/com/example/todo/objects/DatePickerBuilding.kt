@@ -23,6 +23,7 @@ object DatePickerBuilding {
     //  to make date in ("yyyy MM dd") format
     // <T> --> date parameter come in different data type (Long or Date)
     fun <T> formatDate(date: T): String {
+
         val format = SimpleDateFormat("yyyy MM dd")
         return format.format(date)
     }
@@ -32,8 +33,15 @@ object DatePickerBuilding {
     //The pattern letters means: E -> day name, M -> Month name, d -> day of month number, y -> the year
     @RequiresApi(Build.VERSION_CODES.O)
     fun formatDateReadable(date: String): String {
-        val localDate = LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy MM dd"))
-        return localDate.format(DateTimeFormatter.ofPattern("E, MMM dd, yyyy"))
+
+        if(date.isNotEmpty()){
+
+            val localDate = LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy MM dd"))
+            return localDate.format(DateTimeFormatter.ofPattern("E, MMM dd, yyyy"))
+        }else{
+            return ""
+        }
+
     }
 
 

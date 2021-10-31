@@ -11,13 +11,19 @@ interface TodoDao {
     @Insert
     suspend fun addTask(tasksModel: TasksModel)
 
-    @Query("SELECT * FROM tasksmodel")
+    @Query("SELECT * FROM tasksmodel WHERE isDone = :done")
     //LiveData -> to make data  updated or refreshed if there is changes
-    fun getTask(): LiveData<List<TasksModel>>
+    fun getTask(done: Boolean): LiveData<List<TasksModel>>
 
     @Update
     suspend fun updateTask(tasksModel: TasksModel)
 
     @Delete
     suspend fun deleteTask(tasksModel: TasksModel)
+
+
+    @Query("SELECT * FROM tasksmodel  WHERE isDone = :done")
+    //LiveData -> to make data  updated or refreshed if there is changes
+    fun getCompletedTask(done: Boolean): LiveData<List<TasksModel>>
+
 }

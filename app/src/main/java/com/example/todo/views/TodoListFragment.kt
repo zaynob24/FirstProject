@@ -1,9 +1,8 @@
 package com.example.todo.views
 
-import android.content.ContentValues.TAG
 import android.content.Context
 import android.os.Bundle
-import android.service.controls.ControlsProviderService.TAG
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,8 +11,6 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todo.R
 import com.example.todo.database.model.TasksModel
@@ -28,6 +25,8 @@ class TodoListFragment : Fragment() {
     private val TAG = "ModalBottomSheet"
 
     private val tasksItem = mutableListOf<TasksModel>()
+    private val tasksItemCompleted = mutableListOf<TasksModel>()
+
     private val taskViewModel : TasksViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -41,28 +40,51 @@ class TodoListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+
+        // tasks RecyclerView
         val tasksRecyclerView : RecyclerView = view.findViewById(R.id.recyclerView)
         val taskAdapter = TaskAdapter(tasksItem,taskViewModel)
         tasksRecyclerView.adapter = taskAdapter
-        taskViewModel.tasksItems.observe(viewLifecycleOwner, Observer {
-            it?.let { items ->
+
+
+        // tasks complete RecyclerView
+        val tasksCompleteRecyclerView : RecyclerView = view.findViewById(R.id.completedTask_recyclerView)
+        val taskCompleteAdapter = TaskAdapter(tasksItemCompleted,taskViewModel)
+        tasksCompleteRecyclerView.adapter = taskCompleteAdapter
+
+        // get data changes for tasks RecyclerView
+        taskViewModel.tasksItems.observe(viewLifecycleOwner, {
+            it?.let {
 
                 tasksItem.clear()
-                tasksItem.addAll(items)
+                tasksItem.addAll(it)
                 taskAdapter.notifyDataSetChanged()
+
             }
         })
+
+        // get data changes for tasks complete RecyclerView
+        taskViewModel.tasksItemsCompleted.observe(viewLifecycleOwner, {
+            it?.let {
+
+                tasksItemCompleted.clear()
+                tasksItemCompleted.addAll(it)
+                taskCompleteAdapter.notifyDataSetChanged()
+
+            }
+        })
+
+
 
 
         val addFloatingActionButton : FloatingActionButton = view.findViewById(R.id.add_floating_button)
         val categories = resources.getStringArray(R.array.categories)
         spineer = view.findViewById<Spinner>(R.id.spinner)
 
-        /** For test --------------------------------*/
-        val numberTextView :TextView = view.findViewById(R.id.numbers_todo_textview)
-        numberTextView.setOnClickListener {
-            findNavController().navigate(R.id.action_todoListFragment_to_detailsFragment)
-        }
+        //number Of Tasks in the list
+        val numberOfTasksTextView :TextView = view.findViewById(R.id.numbers_todo_textview)
+        numberOfTasksTextView.text = tasksItem.size.toString()
 
         if (spineer != null)
         {

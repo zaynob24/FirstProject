@@ -21,7 +21,8 @@ class TodoRepository(context: Context)  {
 
     private val todoDao = database.todoDao()
 
-    fun getTask() = todoDao.getTask()
+    fun getTask() = todoDao.getTask(false)
+    fun getCompletedTask() = todoDao.getCompletedTask(true)
     suspend fun addTask(tasksModel: TasksModel)= todoDao.addTask(tasksModel)
     suspend fun updateTask(tasksModel: TasksModel)=todoDao.updateTask(tasksModel)
     suspend fun deleteTask(tasksModel: TasksModel)=todoDao.deleteTask(tasksModel)

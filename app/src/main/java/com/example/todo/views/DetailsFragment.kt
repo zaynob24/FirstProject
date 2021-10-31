@@ -26,7 +26,7 @@ class DetailsFragment : Fragment() {
 
     private val taskViewModel : TasksViewModel by activityViewModels()
     private lateinit var selectedTask :TasksModel
-    private lateinit var  selectedDate:String
+    private  var  selectedDate:String =""
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
