@@ -1,6 +1,7 @@
 package com.example.todo.views
 
 import android.graphics.Color
+import android.graphics.Paint
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -23,6 +24,9 @@ import it.emperor.animatedcheckbox.AnimatedCheckBox
 
 
 class DetailsFragment : Fragment() {
+    private lateinit var titleTextViewDetail: EditText
+    private lateinit var dateTextViewDetail: TextView
+
 
     private val taskViewModel : TasksViewModel by activityViewModels()
     private lateinit var selectedTask :TasksModel
@@ -40,8 +44,8 @@ class DetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        val titleTextViewDetail: EditText = view.findViewById(R.id.title_textView_detail)
-        val dateTextViewDetail: TextView = view.findViewById(R.id.date_textView_detail)
+         titleTextViewDetail = view.findViewById(R.id.title_textView_detail)
+         dateTextViewDetail = view.findViewById(R.id.date_textView_detail)
         val noteTextViewDetail: EditText = view.findViewById(R.id.note_textView_detail)
         val createdDateTextViewDetail: TextView = view.findViewById(R.id.created_date_textView)
         val isDoneCheckboxDetails: AnimatedCheckBox =
@@ -74,7 +78,25 @@ class DetailsFragment : Fragment() {
                 selectedTask = it // to use it later for delete button item
             }
 
+            changeDesign(isDoneCheckboxDetails.isChecked())
+
         })
+
+
+        isDoneCheckboxDetails.setOnChangeListener {
+            if(isDoneCheckboxDetails.isChecked()){
+                changeDesign(isDoneCheckboxDetails.isChecked())
+            }else{
+                // change color to red if date pass , or make it black if not pass
+                dateTextViewDetail.setTextColor(
+                    Color.parseColor(
+                        DatePickerBuilding.isDueDatePassColor(
+                            selectedDate
+                        )
+                    )
+                )
+            }
+        }
 
         // delete task
         deleteButtonDetail.setOnClickListener {
@@ -96,17 +118,20 @@ class DetailsFragment : Fragment() {
         // change date --> ok button on date picker clicked
         DatePickerBuilding.datePicker.addOnPositiveButtonClickListener {
 
-
             selectedDate = DatePickerBuilding.formatDate(DatePickerBuilding.datePicker.selection)
 
-            // change color to red if date pass , or make it black if not pass
-            dateTextViewDetail.setTextColor(
-                Color.parseColor(
-                    DatePickerBuilding.isDueDatePassColor(
-                        selectedDate
+            if(isDoneCheckboxDetails.isChecked()){
+                changeDesign(isDoneCheckboxDetails.isChecked())
+            }else{
+                // change color to red if date pass , or make it black if not pass
+                dateTextViewDetail.setTextColor(
+                    Color.parseColor(
+                        DatePickerBuilding.isDueDatePassColor(
+                            selectedDate
+                        )
                     )
                 )
-            )
+            }
 
             dateTextViewDetail.text = DatePickerBuilding.formatDateReadable(selectedDate)
 
@@ -117,7 +142,9 @@ class DetailsFragment : Fragment() {
 
                 selectedTask.title = titleTextViewDetail.text.toString()
                 selectedTask.isDone = isDoneCheckboxDetails.isChecked()
-                selectedTask.dueDate = selectedDate
+                if (selectedDate.isNotEmpty()){
+                    selectedTask.dueDate = selectedDate
+                }
                 selectedTask.note = noteTextViewDetail.text.toString()
 
                 taskViewModel.updateTask(selectedTask)
@@ -126,4 +153,20 @@ class DetailsFragment : Fragment() {
             }
 
     }
+
+
+    private fun changeDesign(isDoneCheckboxDetails:Boolean){
+        if (isDoneCheckboxDetails){
+            // for done tasks make across line design with no date
+            titleTextViewDetail.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+            dateTextViewDetail.setTextColor(Color.GRAY)
+            titleTextViewDetail.setTextColor(Color.GRAY)
+        }else{
+            // for done tasks make across line design with no date
+            titleTextViewDetail.paintFlags = Paint.ANTI_ALIAS_FLAG
+            dateTextViewDetail.setTextColor(Color.BLACK)
+            titleTextViewDetail.setTextColor(Color.BLACK)
+        }
+    }
 }
+
