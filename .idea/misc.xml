@@ -3,15 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/aliju/AndroidStudioProjects/FirstProject/app/src/main/res/drawable-v21/app_widget_background.xml" value="0.25625" />
+        <entry key="..\:/Users/aliju/AndroidStudioProjects/FirstProject/app/src/main/res/drawable-v21/app_widget_inner_view_background.xml" value="0.25625" />
         <entry key="..\:/Users/aliju/AndroidStudioProjects/FirstProject/app/src/main/res/drawable-v24/colored_outline.xml" value="0.25" />
         <entry key="..\:/Users/aliju/AndroidStudioProjects/FirstProject/app/src/main/res/drawable-v24/colored_outline_white_background.xml" value="0.25" />
         <entry key="..\:/Users/aliju/AndroidStudioProjects/FirstProject/app/src/main/res/drawable/bottom_sheet_shape.xml" value="0.2703125" />
+        <entry key="..\:/Users/aliju/AndroidStudioProjects/FirstProject/app/src/main/res/drawable/warning_icon.xml" value="0.2703125" />
         <entry key="..\:/Users/aliju/AndroidStudioProjects/FirstProject/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/aliju/AndroidStudioProjects/FirstProject/app/src/main/res/layout/fragment_details.xml" value="0.4" />
         <entry key="..\:/Users/aliju/AndroidStudioProjects/FirstProject/app/src/main/res/layout/fragment_modal_bottom_sheet.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/aliju/AndroidStudioProjects/FirstProject/app/src/main/res/layout/fragment_todo_list.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/aliju/AndroidStudioProjects/FirstProject/app/src/main/res/layout/item_layout.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/aliju/AndroidStudioProjects/FirstProject/app/src/main/res/layout/iteml_ayout.xml" value="0.4" />
+        <entry key="..\:/Users/aliju/AndroidStudioProjects/FirstProject/app/src/main/res/layout/task_app_widget.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/aliju/AndroidStudioProjects/FirstProject/app/src/main/res/layout/todo_widget_provider.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

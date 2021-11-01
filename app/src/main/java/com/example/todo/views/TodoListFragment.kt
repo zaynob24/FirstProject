@@ -54,6 +54,9 @@ class TodoListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //number Of Tasks in the list
+        val numberOfTasksTextView :TextView = view.findViewById(R.id.numbers_todo_textview)
+        val doneTextView :TextView = view.findViewById(R.id.done_textView)
 
         // tasks RecyclerView
         val tasksRecyclerView : RecyclerView = view.findViewById(R.id.recyclerView)
@@ -74,9 +77,11 @@ class TodoListFragment : Fragment() {
                 tasksItem.addAll(it)
                 taskAdapter.notifyDataSetChanged()
 
+                numberOfTasksTextView.text = "${tasksItem.size.toString()} tasks"
+
+                // get pass date for notification
                 var passDateList = getTasksWithPassDate(tasksItem)
                 var counter = 1
-
                 passDateList.forEach{
                     makeNotification(it.title,"Approaching date !! ${formatDateReadable(it.dueDate)}",counter)
                     counter++
@@ -93,6 +98,12 @@ class TodoListFragment : Fragment() {
                 tasksItemCompleted.addAll(it)
                 taskCompleteAdapter.notifyDataSetChanged()
 
+                if(tasksItemCompleted.size==0){
+                    doneTextView.visibility = View.GONE
+                }else{
+                    doneTextView.visibility = View.VISIBLE
+
+                }
             }
         })
 
@@ -101,9 +112,6 @@ class TodoListFragment : Fragment() {
         val categories = resources.getStringArray(R.array.categories)
         spineer = view.findViewById<Spinner>(R.id.spinner)
 
-        //number Of Tasks in the list
-        val numberOfTasksTextView :TextView = view.findViewById(R.id.numbers_todo_textview)
-        numberOfTasksTextView.text = tasksItem.size.toString()
 
         if (spineer != null)
         {
@@ -125,7 +133,7 @@ class TodoListFragment : Fragment() {
         createNotificationChannel()
 
         var builder = NotificationCompat.Builder(requireContext(), CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_launcher_background)
+            .setSmallIcon(R.drawable.warning_icon)
             .setContentTitle(textTitle)
             .setContentText(textContent)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
