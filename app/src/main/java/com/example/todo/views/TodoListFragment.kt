@@ -1,5 +1,6 @@
 package com.example.todo.views
 
+import android.annotation.SuppressLint
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -42,6 +43,8 @@ class TodoListFragment : Fragment() {
 
     private val taskViewModel : TasksViewModel by activityViewModels()
 
+    private val categoryViewModel:CategoryViewModel by activityViewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -50,6 +53,7 @@ class TodoListFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_todo_list, container, false)
     }
 
+    @SuppressLint("ResourceType")
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -68,6 +72,13 @@ class TodoListFragment : Fragment() {
         val tasksCompleteRecyclerView : RecyclerView = view.findViewById(R.id.completedTask_recyclerView)
         val taskCompleteAdapter = TaskAdapter(tasksItemCompleted,taskViewModel)
         tasksCompleteRecyclerView.adapter = taskCompleteAdapter
+
+        // fill database with exiting data
+        categoryViewModel.addCategory(getString(R.string.option_1),getString(R.color.orange))
+        categoryViewModel.addCategory(getString(R.string.option_2),getString(R.color.dark_pink))
+        categoryViewModel.addCategory(getString(R.string.option_3),getString(R.color.green))
+        categoryViewModel.addCategory(getString(R.string.option_4),getString(R.color.light_blue_200))
+
 
         // get data changes for tasks RecyclerView
         taskViewModel.tasksItems.observe(viewLifecycleOwner, {

@@ -3,6 +3,7 @@ package com.example.todo.repositories
 import android.content.Context
 import androidx.room.Room
 import com.example.todo.database.TodoDatabase
+import com.example.todo.database.model.CategoryModel
 import com.example.todo.database.model.TasksModel
 import java.lang.Exception
 
@@ -21,11 +22,17 @@ class TodoRepository(context: Context)  {
 
     private val todoDao = database.todoDao()
 
+    //for Tasks
     fun getTask() = todoDao.getTask(false)
     fun getCompletedTask() = todoDao.getCompletedTask(true)
     suspend fun addTask(tasksModel: TasksModel)= todoDao.addTask(tasksModel)
     suspend fun updateTask(tasksModel: TasksModel)=todoDao.updateTask(tasksModel)
     suspend fun deleteTask(tasksModel: TasksModel)=todoDao.deleteTask(tasksModel)
+
+    //for Category
+    fun getCategory() = todoDao.getCategory()
+    fun getCategoryWithTasks(category:String) = todoDao.getCategoryWithTasks(category)
+    suspend fun addCategory(categoryModel: CategoryModel)= todoDao.addCategory(categoryModel)
 
 
     //companion object -> object inside class,

@@ -13,6 +13,8 @@ data class TasksModel(
     var dueDate : String ="",
     val createdDate : String,
 
+    val categoryName : String,
+
     @PrimaryKey(autoGenerate = true)
     val id:Int = 0
 

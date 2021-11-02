@@ -3,11 +3,16 @@ package com.example.todo.views
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import androidx.annotation.MenuRes
+import androidx.appcompat.widget.PopupMenu
+import androidx.core.content.ContentProviderCompat
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
@@ -24,6 +29,7 @@ class ModalBottomSheetFragment : BottomSheetDialogFragment() {
     private lateinit var currentDate :String
     private val isDONE = false
     private val NOTE = ""
+    private var categoryName = "No category"
 
     private lateinit var todoTaskTitle :String
     private val tasksViewModel : TasksViewModel by activityViewModels()
@@ -49,6 +55,7 @@ class ModalBottomSheetFragment : BottomSheetDialogFragment() {
         val saveButton: Button = view.findViewById(R.id.save_button_sheet)
         val calenderIcon: ImageView = view.findViewById(R.id.calenderIcon_imageView)
         val todoTitleEditText: EditText = view.findViewById(R.id.todo_title_editText)
+        val fileIcon: ImageView = view.findViewById(R.id.file_imageView)
 
 
 
@@ -63,6 +70,17 @@ class ModalBottomSheetFragment : BottomSheetDialogFragment() {
             // show date picker dialog
             DatePickerBuilding.datePicker.show(requireActivity().supportFragmentManager, "tag")
         }
+
+        fileIcon.setOnClickListener { v: View ->
+            // show Category Popup menus
+
+            showMenu(v, R.menu.popup_menu)
+        }
+
+
+
+
+
 
            //TODO 1: change button color while setEnabled(false)
           //  https://newbedev.com/change-the-color-of-a-disabled-button-in-android
@@ -88,7 +106,7 @@ class ModalBottomSheetFragment : BottomSheetDialogFragment() {
         saveButton.setOnClickListener {
             todoTaskTitle = todoTitleEditText.text.toString()
             currentDate = DatePickerBuilding.formatDate(Calendar.getInstance().time)
-            tasksViewModel.addTask(todoTaskTitle,NOTE,isDONE,selectedDate,currentDate)
+            tasksViewModel.addTask(todoTaskTitle,NOTE,isDONE,selectedDate,currentDate,categoryName)
             dismiss()  // close Modal Bottom Sheet Fragment
             todoTitleEditText.text.clear()
         }
@@ -97,4 +115,22 @@ class ModalBottomSheetFragment : BottomSheetDialogFragment() {
     //TODO 2: [[ make edit text clear when press out of button sheet ]]
 
 
+    private fun showMenu(v: View, @MenuRes menuRes: Int) {
+        val popup = PopupMenu(requireContext()!!, v)
+        popup.menuInflater.inflate(menuRes, popup.menu)
+
+        popup.setOnMenuItemClickListener { menuItem: MenuItem ->
+            categoryName =menuItem.toString()
+            // Respond to menu item click.
+            Log.d("menuItem",menuItem.toString())
+            true
+        }
+        popup.setOnDismissListener {
+            // Respond to popup being dismissed.
+        }
+        // Show the popup menu.
+        popup.show()
+    }
 }
+
+

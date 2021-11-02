@@ -6,9 +6,11 @@ import androidx.room.PrimaryKey
 @Entity
 data class CategoryModel(
 
-    var categoryName : String,
-    var categoryColor : Int,
+    var categoryColor : String,
 
-    @PrimaryKey(autoGenerate = true)
-    val id:Int = 0
+
+    @PrimaryKey(autoGenerate = false)
+    var categoryName : String
+
+
 )
