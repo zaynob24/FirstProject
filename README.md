@@ -8,7 +8,7 @@ ToDo List App is a kind of app that generally used to maintain our day-to-day ta
 
 ### technologies used
 
-- Architecture Components
+- ViewModel Architecture
 - Room database
 - Recyclerview and adapter
 - Fragment
