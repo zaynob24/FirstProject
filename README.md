@@ -2,6 +2,8 @@
 
 ## TODO APP
 
+
+### User Stories
 * As User, I want to add list of Todo tasks, so I can easier reach and remember what todo.
 * As User, I want to add detailes note to may todo task so that I see clear idea of wht I need todo
 * As User, I want to add due date so that I know which task finsh it first
