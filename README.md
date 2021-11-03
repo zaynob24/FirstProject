@@ -63,3 +63,5 @@ ToDo List App is a kind of app that generally used to maintain our day-to-day ta
    I use Figma to make my Wireframes and designe, I put a lot of effort in this part .I tried to make my app simple and have good looking, with good user UI experiment .I          take in consideration how the app flow to end up with clear and easy to use app.It wasn't easy To achive all that in xml and android coding (easy on Sketching hard in coding😂😢)
    
    one of the implimntation I stuck with was  to dividing the user tasks based on complete and incomplete ones .I tried to implement it using one recyclerview, but its conditions, and controlling the visibility of the task so missy and difficult 😢.I came up of another way to useing tow recyclerview with one adapter 👏🎉
+   
+   last but not least, after completing coding and finish the app, I began testing my app with various use cases to debugging
