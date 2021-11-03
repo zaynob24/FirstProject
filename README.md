@@ -8,7 +8,7 @@ ToDo List App is a kind of app that generally used to maintain our day-to-day ta
 
 ### technologies used
 
-- Model view controller (MVC) software design pattern
+- Architecture Components
 - Room database
 - Recyclerview and adapter
 - Fragment
