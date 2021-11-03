@@ -84,8 +84,10 @@ ToDo List App is a kind of app that generally used to maintain our day-to-day ta
   
   I worked in a feature that sorting tasks in categories ,the categories dynamically entered by user.I made database schema(One-to-N Relationships).Also included the categories     menu in layout.
   I faced time problem to cntinue the implimntation part so I plan to doit later.
+  
   ------------------------------------
-  ## favorite functions work
+
+ ## favorite functions work
   
   One of my favorite part of the app is the sort of complete and uncompleted task and how dynamically changes , with obvious different looking
 
