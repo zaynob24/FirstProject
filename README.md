@@ -4,8 +4,12 @@
 
 ToDo List App is a kind of app that generally used to maintain our day-to-day tasks or list everything that we have to do, with the uncompltted tasks at the top of the list, and the completed tasks at the bottom. It is helpful in planning our daily schedules.
 
-<br></br>
+--------------------------------------------------------
 
+## Wireframes
+
+ [open the prototype](https://www.figma.com/proto/CuNBQ8QhQHsR1ejYRNrIUi/Untitled?page-id=0%3A1&node-id=2%3A2&viewport=241%2C48%2C1&scaling=scale-down&starting-point-node-id=2%3A2)
+ -----------------------------
 <img src="https://d.top4top.io/p_21336dndz1.png" alt="alt text" width="300" height="550"> <img src="https://j.top4top.io/p_2133ve7gn1.png" alt="alt text" width="300" height="550"> <img src="https://d.top4top.io/p_21339qgr41.png" alt="alt text" width="300" height="550">
 
 
