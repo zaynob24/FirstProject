@@ -10,4 +10,4 @@
 * As User, I want to indication of whether the task's due date reach or not so that I draw my attention of passed date
 * As User, I want to edite any task details so that I feel more in control and don't enforced to create new one
 * As User, I want to get notifications when task's due date came so that I never miss doing my task
-* * As User, I want to hide uncompleted tasks so that I focus on completed one
+* As User, I want to hide uncompleted tasks so that I focus on completed one
