@@ -69,14 +69,16 @@ ToDo List App is a kind of app that generally used to maintain our day-to-day ta
    
    ### Problem Solving Strategy
    
-   1.Understanding the problem
-   2.Breaking the problem down into manageable chunks
-   3.Generating ideas for solutions
-     -- trying and debugging
-     -- make some searching : Google, Stackoverflow , medium.com
-     -- Ask other developers (if applicable)
-     -- keep trying and debugging
+   1. Understanding the problem
+   2. Breaking the problem down into manageable chunks
+   3. Generating ideas for solutions
+  
+      - trying and debugging
+      - make some searching : Google, Stackoverflow , medium.com
+      - Ask other developers (if applicable)
+      - keep trying and debugging
 
+   --------------------------------------
    
    
 
