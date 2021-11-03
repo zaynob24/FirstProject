@@ -6,13 +6,6 @@ ToDo List App is a kind of app that generally used to maintain our day-to-day ta
 
 --------------------------------------------------------
 
-## Wireframes
-
- [open the prototype](https://www.figma.com/proto/CuNBQ8QhQHsR1ejYRNrIUi/Untitled?page-id=0%3A1&node-id=2%3A2&viewport=241%2C48%2C1&scaling=scale-down&starting-point-node-id=2%3A2)
- -----------------------------
-<img src="https://d.top4top.io/p_21336dndz1.png" alt="alt text" width="300" height="550"> <img src="https://j.top4top.io/p_2133ve7gn1.png" alt="alt text" width="300" height="550"> <img src="https://d.top4top.io/p_21339qgr41.png" alt="alt text" width="300" height="550">
-
-
 ### technologies used
 
 - Model view controller (MVC) software design pattern
@@ -26,6 +19,13 @@ ToDo List App is a kind of app that generally used to maintain our day-to-day ta
    - animatedcheckbox (https://android-arsenal.com/details/1/7205)
 
 
+---------------------------
+## Wireframes
+
+ [open the prototype](https://www.figma.com/proto/CuNBQ8QhQHsR1ejYRNrIUi/Untitled?page-id=0%3A1&node-id=2%3A2&viewport=241%2C48%2C1&scaling=scale-down&starting-point-node-id=2%3A2)
+ -----------------------------
+<img src="https://d.top4top.io/p_21336dndz1.png" alt="alt text" width="300" height="550"> <img src="https://j.top4top.io/p_2133ve7gn1.png" alt="alt text" width="300" height="550"> <img src="https://d.top4top.io/p_21339qgr41.png" alt="alt text" width="300" height="550">
+
 ### User Stories
 * As User, I want to add list of Todo tasks, so I can easier reach and remember what todo.
 * As User, I want to add detailes note to may todo task so that I see clear idea of wht I need todo
@@ -36,4 +36,8 @@ ToDo List App is a kind of app that generally used to maintain our day-to-day ta
 * As User, I want to edite any task details so that I feel more in control and don't enforced to create new one
 * As User, I want to get notifications when task's due date came so that I never miss doing my task
 * As User, I want to hide uncompleted tasks so that I focus on completed one
+
+-------------------------------
+
+
 
