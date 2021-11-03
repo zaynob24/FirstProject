@@ -1,6 +1,21 @@
-# MY FirstProject
+# TODO APP
 
-## TODO APP
+## MY FirstProject
+
+ToDo List App is a kind of app that generally used to maintain our day-to-day tasks or list everything that we have to do, with the uncompltted tasks at the top of the list, and the completed tasks at the bottom. It is helpful in planning our daily schedules.
+
+
+### technologies used
+
+- Model view controller (MVC) software design pattern
+- Room database
+- Recyclerview and adapter
+- Fragment
+   - Fragment navigation graph
+   - BottomSheetDialogFragment
+- Support Library 
+   - Material Design (https://material.io/components?platform=android)
+   - animatedcheckbox (https://android-arsenal.com/details/1/7205)
 
 
 ### User Stories
@@ -13,3 +28,4 @@
 * As User, I want to edite any task details so that I feel more in control and don't enforced to create new one
 * As User, I want to get notifications when task's due date came so that I never miss doing my task
 * As User, I want to hide uncompleted tasks so that I focus on completed one
+
