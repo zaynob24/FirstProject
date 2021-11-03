@@ -16,6 +16,7 @@ ToDo List App is a kind of app that generally used to maintain our day-to-day ta
 - ViewModel Architecture
 - Room database
 - Recyclerview and adapter
+- Notification
 - Fragment
    - Fragment navigation graph
    - BottomSheetDialogFragment
@@ -31,7 +32,9 @@ ToDo List App is a kind of app that generally used to maintain our day-to-day ta
  -----------------------------
 <img src="https://d.top4top.io/p_21336dndz1.png" alt="alt text" width="300" height="550"> <img src="https://j.top4top.io/p_2133ve7gn1.png" alt="alt text" width="300" height="550"> <img src="https://d.top4top.io/p_21339qgr41.png" alt="alt text" width="300" height="550">
 
-### User Stories
+------------------------
+
+## User Stories
 * As User, I want to add list of Todo tasks, so I can easier reach and remember what todo.
 * As User, I want to add detailes note to may todo task so that I see clear idea of wht I need todo
 * As User, I want to add due date so that I know which task finsh it first
@@ -44,5 +47,19 @@ ToDo List App is a kind of app that generally used to maintain our day-to-day ta
 
 -------------------------------
 
+## Planning and Development
+
+######  1. Sketch my App Idea
+######  2. Do Some Market Research
+######  3. Create Mockups of My App And Graphic Design
+######  4. developing Front-end
+######  4. developing Back-end
+######  4. Testing
 
 
+   I Sketched out my app idea with pen and paper.To make the idea clear. I define how my app will works and what its features are, before I start developing the app.
+   Also I download some to do list app to see how it is work and their future.so I open my mind for more ideas.
+   
+   I use Figma to make my Wireframes and designe, I put a lot of effort in this part .I tried to make my app simple and have good looking, with good user UI experiment .I          take in consideration how the app flow to end up with clear and easy to use app.It wasn't easy To achive all that in xml and android coding (easy on Sketching hard in coding😂😢)
+   
+   one of the implimntation I stuck with was  to dividing the user tasks based on complete and incomplete ones .I tried to implement it using one recyclerview, but its conditions, and controlling the visibility of the task so missy and difficult 😢.I came up of another way to useing tow recyclerview with one adapter 👏🎉
