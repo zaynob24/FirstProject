@@ -65,3 +65,18 @@ ToDo List App is a kind of app that generally used to maintain our day-to-day ta
    one of the implimntation I stuck with was  to dividing the user tasks based on complete and incomplete ones .I tried to implement it using one recyclerview, but its conditions, and controlling the visibility of the task so missy and difficult 😢.I came up of another way to useing tow recyclerview with one adapter 👏🎉
    
    last but not least, after completing coding and finish the app, I began testing my app with various use cases to debugging
+   
+   
+   ### Problem Solving Strategy
+   
+   1.Understanding the problem
+   2.Breaking the problem down into manageable chunks
+   3.Generating ideas for solutions
+     -- trying and debugging
+     -- make some searching : Google, Stackoverflow , medium.com
+     -- Ask other developers (if applicable)
+     -- keep trying and debugging
+
+   
+   
+
