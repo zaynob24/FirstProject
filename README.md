@@ -92,6 +92,3 @@ ToDo List App is a kind of app that generally used to maintain our day-to-day ta
   One of my favorite part of the app is the sort of complete and uncompleted task and how dynamically changes , with obvious different looking
 
 -----------------------
-
-  
-
