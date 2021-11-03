@@ -1,7 +1,6 @@
 package com.example.todo.views
 
 import android.annotation.SuppressLint
-import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
@@ -10,15 +9,18 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.TextView
+import androidx.annotation.MenuRes
 import androidx.annotation.RequiresApi
+import androidx.appcompat.widget.PopupMenu
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todo.R
@@ -37,6 +39,9 @@ class TodoListFragment : Fragment() {
     private val TAG = "ModalBottomSheet"
     var textTitle = ""
     var textContent = ""
+    private var categoryName = "No category"
+    var isShown = true
+
 
     private val tasksItem = mutableListOf<TasksModel>()
     private val tasksItemCompleted = mutableListOf<TasksModel>()
@@ -61,6 +66,19 @@ class TodoListFragment : Fragment() {
         //number Of Tasks in the list
         val numberOfTasksTextView :TextView = view.findViewById(R.id.numbers_todo_textview)
         val doneTextView :TextView = view.findViewById(R.id.done_textView)
+        val fileIcon:ImageView =view.findViewById(R.id.file_icon_list)
+        val eyeIcon:ImageView =view.findViewById(R.id.eye_icon)
+
+
+        var list = listOf<String>("dd","ff","gg")
+
+        fileIcon.setOnClickListener { v: View ->
+            // show Category Popup menus
+            showMenu(v, list)
+            //showMenu(v, R.menu.popup_menu)
+
+        }
+
 
         // tasks RecyclerView
         val tasksRecyclerView : RecyclerView = view.findViewById(R.id.recyclerView)
@@ -111,13 +129,29 @@ class TodoListFragment : Fragment() {
 
                 if(tasksItemCompleted.size==0){
                     doneTextView.visibility = View.GONE
+                    eyeIcon.visibility =View.GONE
                 }else{
                     doneTextView.visibility = View.VISIBLE
+                    eyeIcon.visibility =View.VISIBLE
 
                 }
             }
         })
 
+
+        // show and hide completed tasks
+        eyeIcon.setOnClickListener {
+
+            if (isShown){
+                tasksCompleteRecyclerView.visibility = View.GONE
+                doneTextView.visibility = View.INVISIBLE
+                isShown = false
+            }else{
+                tasksCompleteRecyclerView.visibility = View.VISIBLE
+                doneTextView.visibility = View.VISIBLE
+                isShown = true
+            }
+        }
 
         val addFloatingActionButton : FloatingActionButton = view.findViewById(R.id.add_floating_button)
         val categories = resources.getStringArray(R.array.categories)
@@ -182,6 +216,25 @@ class TodoListFragment : Fragment() {
                 getActivity()?.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(channel)
         }
+    }
+
+    private fun showMenu(v: View,  menuRes: List<String>) {
+        val popup = PopupMenu(requireContext()!!, v)
+
+        popup.menu.add("Test")
+        popup.menuInflater.inflate(R.menu.popup_menu, popup.menu)
+
+        popup.setOnMenuItemClickListener { menuItem: MenuItem ->
+            categoryName =menuItem.toString()
+            // Respond to menu item click.
+            Log.d("menuItem",menuItem.toString())
+            true
+        }
+        popup.setOnDismissListener {
+            // Respond to popup being dismissed.
+        }
+        // Show the popup menu.
+        popup.show()
     }
 
 }

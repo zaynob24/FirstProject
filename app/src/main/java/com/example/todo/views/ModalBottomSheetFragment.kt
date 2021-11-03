@@ -73,7 +73,6 @@ class ModalBottomSheetFragment : BottomSheetDialogFragment() {
 
         fileIcon.setOnClickListener { v: View ->
             // show Category Popup menus
-
             showMenu(v, R.menu.popup_menu)
         }
 
@@ -131,6 +130,7 @@ class ModalBottomSheetFragment : BottomSheetDialogFragment() {
         // Show the popup menu.
         popup.show()
     }
+
 }
 
 

@@ -58,7 +58,7 @@ class DetailsFragment : Fragment() {
         taskViewModel.selectedItemMutableLiveData.observe(viewLifecycleOwner, Observer {
             it?.let {
 
-                createdDateTextViewDetail.text = "Created At ${it.createdDate}"
+                createdDateTextViewDetail.text = "Created at ${it.createdDate}"
                 titleTextViewDetail.setText(it.title)
 
 
