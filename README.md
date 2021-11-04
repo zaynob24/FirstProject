@@ -60,9 +60,9 @@ ToDo List App is a kind of app that generally used to maintain our day-to-day ta
    I Sketched out my app idea with pen and paper.To make the idea clear. I define how my app will works and what its features are, before I start developing the app.
    Also I download some to do list app to see how it is work and their future.so I open my mind for more ideas.
    
-   I use Figma to make my Wireframes and designe, I put a lot of effort in this part .I tried to make my app simple and have good looking, with good user UI experiment .I          take in consideration how the app flow to end up with clear and easy to use app.It wasn't easy To achive all that in xml and android coding (easy on Sketching hard in coding😂😢)
+   I use Figma to make my Wireframes and designe, I put a lot of effort in this part .I tried to make my app simple and have good looking, with good user UI experiment .I          take in consideration how the app flow to end up with clear and easy to use app.It wasn't easy To achive all that in xml and android coding (easy on Sketching hard in coding😢)
    
-   one of the implimntation I stuck with was  to dividing the user tasks based on complete and incomplete ones .I tried to implement it using one recyclerview, but its conditions, and controlling the visibility of the task so missy and difficult 😢.I came up of another way to useing tow recyclerview with tow objects of one class adapter 👏🎉
+   one of the implimntation I stuck with was  to dividing the user tasks based on complete and incomplete ones .I tried to implement it using one recyclerview, but its conditions, and controlling the visibility of the task so missy and difficult 💔.I came up of another way to useing tow recyclerview with tow objects of one class adapter 👏🎉
    
    last but not least, after completing coding and finish the app, I began testing my app with various use cases to debugging
    
@@ -92,3 +92,12 @@ ToDo List App is a kind of app that generally used to maintain our day-to-day ta
   One of my favorite part of the app is the sort of complete and uncompleted task and how dynamically changes , with obvious different looking
 
 -----------------------
+
+## App preview
+
+
+
+https://user-images.githubusercontent.com/91452403/140239280-69cb8576-61bf-4a7b-bbdc-76eebbec7dd8.mp4
+
+
+
