@@ -8,9 +8,7 @@ data class CategoryModel(
 
     var categoryColor : String,
 
-
     @PrimaryKey(autoGenerate = false)
     var categoryName : String
-
 
 )

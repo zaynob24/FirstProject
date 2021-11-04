@@ -58,12 +58,10 @@ class ModalBottomSheetFragment : BottomSheetDialogFragment() {
         val fileIcon: ImageView = view.findViewById(R.id.file_imageView)
 
 
-
         // date picker --> ok button clicked
         DatePickerBuilding.datePicker.addOnPositiveButtonClickListener {
 
             selectedDate = DatePickerBuilding.formatDate(DatePickerBuilding.datePicker.selection)
-            Log.d("selected Date", selectedDate)
         }
 
         calenderIcon.setOnClickListener {
@@ -75,15 +73,6 @@ class ModalBottomSheetFragment : BottomSheetDialogFragment() {
             // show Category Popup menus
             showMenu(v, R.menu.popup_menu)
         }
-
-
-
-
-
-
-           //TODO 1: change button color while setEnabled(false)
-          //  https://newbedev.com/change-the-color-of-a-disabled-button-in-android
-          //  https://stackoverflow.com/questions/33071410/change-the-color-of-a-disabled-button-in-android
 
 
         // save button disabled while no text entered
@@ -111,8 +100,6 @@ class ModalBottomSheetFragment : BottomSheetDialogFragment() {
         }
     }
 
-    //TODO 2: [[ make edit text clear when press out of button sheet ]]
-
 
     private fun showMenu(v: View, @MenuRes menuRes: Int) {
         val popup = PopupMenu(requireContext()!!, v)
@@ -121,7 +108,6 @@ class ModalBottomSheetFragment : BottomSheetDialogFragment() {
         popup.setOnMenuItemClickListener { menuItem: MenuItem ->
             categoryName =menuItem.toString()
             // Respond to menu item click.
-            Log.d("menuItem",menuItem.toString())
             true
         }
         popup.setOnDismissListener {

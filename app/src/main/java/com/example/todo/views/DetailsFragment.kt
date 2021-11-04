@@ -28,9 +28,11 @@ class DetailsFragment : Fragment() {
     private lateinit var dateTextViewDetail: TextView
 
 
-    private val taskViewModel : TasksViewModel by activityViewModels()
-    private lateinit var selectedTask :TasksModel
-    private  var  selectedDate:String =""
+    private val taskViewModel: TasksViewModel by activityViewModels()
+    private lateinit var selectedTask: TasksModel
+    private var selectedDate: String = ""
+    private lateinit var dueDate: String
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,8 +46,8 @@ class DetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-         titleTextViewDetail = view.findViewById(R.id.title_textView_detail)
-         dateTextViewDetail = view.findViewById(R.id.date_textView_detail)
+        titleTextViewDetail = view.findViewById(R.id.title_textView_detail)
+        dateTextViewDetail = view.findViewById(R.id.date_textView_detail)
         val noteTextViewDetail: EditText = view.findViewById(R.id.note_textView_detail)
         val createdDateTextViewDetail: TextView = view.findViewById(R.id.created_date_textView)
         val isDoneCheckboxDetails: AnimatedCheckBox =
@@ -57,18 +59,14 @@ class DetailsFragment : Fragment() {
 
         taskViewModel.selectedItemMutableLiveData.observe(viewLifecycleOwner, Observer {
             it?.let {
-
-                createdDateTextViewDetail.text = "Created at ${it.createdDate}"
+                dueDate = it.dueDate
+                createdDateTextViewDetail.text =
+                    "Created at ${DatePickerBuilding.formatDateReadable(it.createdDate)}"
                 titleTextViewDetail.setText(it.title)
-
 
                 // change color to red if date pass , or make it black if not pass
                 dateTextViewDetail.setTextColor(
-                    Color.parseColor(
-                        DatePickerBuilding.isDueDatePassColor(
-                            it.dueDate
-                        )
-                    )
+                    Color.parseColor(DatePickerBuilding.isDueDatePassColor(dueDate))
                 )
 
 
@@ -84,18 +82,17 @@ class DetailsFragment : Fragment() {
 
 
         isDoneCheckboxDetails.setOnChangeListener {
-            if(isDoneCheckboxDetails.isChecked()){
                 changeDesign(isDoneCheckboxDetails.isChecked())
-            }else{
-                // change color to red if date pass , or make it black if not pass
-                dateTextViewDetail.setTextColor(
-                    Color.parseColor(
-                        DatePickerBuilding.isDueDatePassColor(
-                            selectedDate
-                        )
-                    )
-                )
-            }
+//                if (!isDoneCheckboxDetails.isChecked()) {
+//                // change color to red if date pass , or make it black if not pass
+//                dateTextViewDetail.setTextColor(
+//                    Color.parseColor(
+//                        DatePickerBuilding.isDueDatePassColor(
+//                            selectedDate
+//                        )
+//                    )
+//                )
+//            }
         }
 
         // delete task
@@ -120,9 +117,7 @@ class DetailsFragment : Fragment() {
 
             selectedDate = DatePickerBuilding.formatDate(DatePickerBuilding.datePicker.selection)
 
-            if(isDoneCheckboxDetails.isChecked()){
-                changeDesign(isDoneCheckboxDetails.isChecked())
-            }else{
+                //changeDesign(isDoneCheckboxDetails.isChecked())
                 // change color to red if date pass , or make it black if not pass
                 dateTextViewDetail.setTextColor(
                     Color.parseColor(
@@ -131,41 +126,49 @@ class DetailsFragment : Fragment() {
                         )
                     )
                 )
-            }
+
 
             dateTextViewDetail.text = DatePickerBuilding.formatDateReadable(selectedDate)
 
         }
 
-            // update changes and close fragment
-            saveIconDetail.setOnClickListener {
+        // update changes and close fragment
+        saveIconDetail.setOnClickListener {
 
-                selectedTask.title = titleTextViewDetail.text.toString()
-                selectedTask.isDone = isDoneCheckboxDetails.isChecked()
-                if (selectedDate.isNotEmpty()){
-                    selectedTask.dueDate = selectedDate
-                }
-                selectedTask.note = noteTextViewDetail.text.toString()
-
-                taskViewModel.updateTask(selectedTask)
-                findNavController().popBackStack()
-
+            selectedTask.title = titleTextViewDetail.text.toString()
+            selectedTask.isDone = isDoneCheckboxDetails.isChecked()
+            if (selectedDate.isNotEmpty()) {
+                selectedTask.dueDate = selectedDate
             }
+            selectedTask.note = noteTextViewDetail.text.toString()
+
+            taskViewModel.updateTask(selectedTask)
+            findNavController().popBackStack()
+
+        }
 
     }
 
 
-    private fun changeDesign(isDoneCheckboxDetails:Boolean){
-        if (isDoneCheckboxDetails){
+    private fun changeDesign(isDoneCheckboxDetails: Boolean) {
+        if (isDoneCheckboxDetails) {
             // for done tasks make across line design with no date
             titleTextViewDetail.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
             dateTextViewDetail.setTextColor(Color.GRAY)
             titleTextViewDetail.setTextColor(Color.GRAY)
-        }else{
+        } else {
             // for done tasks make across line design with no date
             titleTextViewDetail.paintFlags = Paint.ANTI_ALIAS_FLAG
-            dateTextViewDetail.setTextColor(Color.BLACK)
+            //dateTextViewDetail.setTextColor(Color.BLACK)
             titleTextViewDetail.setTextColor(Color.BLACK)
+            // change color to red if date pass , or make it black if not pass
+            dateTextViewDetail.setTextColor(
+                Color.parseColor(
+                    DatePickerBuilding.isDueDatePassColor(
+                        dueDate
+                    )
+                )
+            )
         }
     }
 }

@@ -75,6 +75,10 @@ class TaskAdapter (val tasks:List<TasksModel>, val viewModel: TasksViewModel)
             holder.titleTextView.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
             holder.dueDateTextView.visibility = View.GONE
             holder.titleTextView.setTextColor(Color.GRAY)
+        }else{
+            holder.titleTextView.paintFlags = Paint.ANTI_ALIAS_FLAG
+            holder.dueDateTextView.visibility = View.VISIBLE
+            holder.titleTextView.setTextColor(Color.BLACK)
         }
 
         if (task.dueDate.isEmpty()){

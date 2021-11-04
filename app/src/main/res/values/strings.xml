@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">To Do</string>
     <string name="todo_header">TO DO:</string>
     <string name="done_header">Done:</string>
@@ -22,6 +22,9 @@
         <item>Travel</item>
         <item>Life</item>
     </string-array>
+
+    <string name="mtrl_picker_confirm" tools:override="true">Ok</string>
+
 
     <!-- Notification Builder -->
     <string name="option_1">No category"</string>

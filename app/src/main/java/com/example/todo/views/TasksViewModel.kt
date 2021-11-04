@@ -22,7 +22,6 @@ open class TasksViewModel: ViewModel() {
         }
     }
 
-
     fun updateTask(tasksModel: TasksModel){
         viewModelScope.launch {
             todoRepository.updateTask(tasksModel)
@@ -34,5 +33,4 @@ open class TasksViewModel: ViewModel() {
             todoRepository.deleteTask(tasksModel)
         }
     }
-
 }

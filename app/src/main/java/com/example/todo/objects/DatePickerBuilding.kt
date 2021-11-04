@@ -4,6 +4,7 @@ import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
 import com.example.todo.R
+import com.google.android.material.datepicker.CalendarConstraints
 import com.google.android.material.datepicker.MaterialDatePicker
 import java.text.SimpleDateFormat
 import java.time.LocalDate
@@ -16,6 +17,7 @@ object DatePickerBuilding {
     // build date Picker dialog
     val datePicker =
         MaterialDatePicker.Builder.datePicker()
+            .setTheme(R.style.DatePickerTheme)
             .setTitleText(R.string.select_date_header)
             .build()
 
@@ -43,7 +45,6 @@ object DatePickerBuilding {
         }
 
     }
-
 
 
     // check if date pass return color

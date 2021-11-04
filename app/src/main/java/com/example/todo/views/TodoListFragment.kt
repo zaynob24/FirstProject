@@ -33,13 +33,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 class TodoListFragment : Fragment() {
 
     val CHANNEL_ID = "notify"
-    var notificationId = 1
     private lateinit var  spineer : Spinner
     private val modalBottomSheet = ModalBottomSheetFragment()
     private val TAG = "ModalBottomSheet"
-    var textTitle = ""
-    var textContent = ""
-    private var categoryName = "No category"
+    //private var categoryName = "No category"
     var isShown = true
 
 
@@ -66,19 +63,18 @@ class TodoListFragment : Fragment() {
         //number Of Tasks in the list
         val numberOfTasksTextView :TextView = view.findViewById(R.id.numbers_todo_textview)
         val doneTextView :TextView = view.findViewById(R.id.done_textView)
-        val fileIcon:ImageView =view.findViewById(R.id.file_icon_list)
+        // val fileIcon:ImageView =view.findViewById(R.id.file_icon_list)
         val eyeIcon:ImageView =view.findViewById(R.id.eye_icon)
 
 
-        var list = listOf<String>("dd","ff","gg")
+        // TODO to show Menu of category
 
-        fileIcon.setOnClickListener { v: View ->
-            // show Category Popup menus
-            showMenu(v, list)
-            //showMenu(v, R.menu.popup_menu)
-
-        }
-
+//        fileIcon.setOnClickListener { v: View ->
+//            // show Category Popup menus
+//            showMenu(v, list)
+//            //showMenu(v, R.menu.popup_menu)
+//
+//        }
 
         // tasks RecyclerView
         val tasksRecyclerView : RecyclerView = view.findViewById(R.id.recyclerView)
@@ -218,23 +214,24 @@ class TodoListFragment : Fragment() {
         }
     }
 
-    private fun showMenu(v: View,  menuRes: List<String>) {
-        val popup = PopupMenu(requireContext()!!, v)
-
-        popup.menu.add("Test")
-        popup.menuInflater.inflate(R.menu.popup_menu, popup.menu)
-
-        popup.setOnMenuItemClickListener { menuItem: MenuItem ->
-            categoryName =menuItem.toString()
-            // Respond to menu item click.
-            Log.d("menuItem",menuItem.toString())
-            true
-        }
-        popup.setOnDismissListener {
-            // Respond to popup being dismissed.
-        }
-        // Show the popup menu.
-        popup.show()
-    }
+    // TODO to show Menu of category
+//    private fun showMenu(v: View,  menuRes: List<String>) {
+//        val popup = PopupMenu(requireContext()!!, v)
+//
+//        popup.menu.add("Test")
+//        popup.menuInflater.inflate(R.menu.popup_menu, popup.menu)
+//
+//        popup.setOnMenuItemClickListener { menuItem: MenuItem ->
+//            categoryName =menuItem.toString()
+//            // Respond to menu item click.
+//            Log.d("menuItem",menuItem.toString())
+//            true
+//        }
+//        popup.setOnDismissListener {
+//            // Respond to popup being dismissed.
+//        }
+//        // Show the popup menu.
+//        popup.show()
+//    }
 
 }
