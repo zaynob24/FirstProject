@@ -65,6 +65,7 @@ class TodoListFragment : Fragment() {
         val doneTextView :TextView = view.findViewById(R.id.done_textView)
         // val fileIcon:ImageView =view.findViewById(R.id.file_icon_list)
         val eyeIcon:ImageView =view.findViewById(R.id.eye_icon)
+        val addFloatingActionButton : FloatingActionButton = view.findViewById(R.id.add_floating_button)
 
 
         // TODO to show Menu of category
@@ -149,7 +150,6 @@ class TodoListFragment : Fragment() {
             }
         }
 
-        val addFloatingActionButton : FloatingActionButton = view.findViewById(R.id.add_floating_button)
         val categories = resources.getStringArray(R.array.categories)
         spineer = view.findViewById<Spinner>(R.id.spinner)
 
